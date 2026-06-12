@@ -121,6 +121,31 @@
   .nav-sparkline { display: flex; align-items: flex-end; gap: 2px; margin-top: 5px; height: 24px; }
   .nav-sparkline .bar { flex: 1; border-radius: 2px 2px 0 0; min-width: 5px; transition: opacity 0.15s; }
   .nav-sparkline .bar:hover { opacity: 0.7; }
+
+  /* Floating tooltip */
+  #spark-tooltip {
+    position: fixed;
+    background: var(--navy);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.1s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  #spark-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; left: 50%; transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--navy);
+    border-bottom: none;
+  }
   .nav-loading { display: inline-block; font-size: 0.72rem; color: var(--text-light); }
   .nav-change { font-size: 0.7rem; font-weight: 700; margin-top: 2px; }
   .nav-change.up { color: #1A7A4A; }
@@ -459,21 +484,22 @@ function renderNavCell(code) {
     changeHtml = `<div class="nav-change ${dir}">${arrow} ${Math.abs(pct)}% (3M)</div>`;
   }
 
-  // Sparkline bars
+  // Sparkline bars — each bar carries date + NAV in data-tip for the tooltip
   let sparkHtml = '';
   if (hist.length > 1) {
-    const vals = [...hist].reverse().map(h => parseFloat(h.nav)); // oldest→newest
+    const points = [...hist].reverse().map(h => ({ nav: parseFloat(h.nav), date: h.date }));
+    const vals = points.map(p => p.nav);
     const min = Math.min(...vals), max = Math.max(...vals), range = max - min || 1;
-    // Sample up to 20 bars
-    const step = Math.max(1, Math.floor(vals.length / 20));
-    const sampled = vals.filter((_, i) => i % step === 0);
-    const isUp = sampled[sampled.length-1] >= sampled[0];
+    const step = Math.max(1, Math.floor(points.length / 24));
+    const sampled = points.filter((_, i) => i % step === 0);
+    const isUp = sampled[sampled.length-1].nav >= sampled[0].nav;
     const color = isUp ? '#1A7A4A' : '#C0392B';
-    const bars = sampled.map(v => {
-      const h = Math.max(3, Math.round(((v - min) / range) * 22));
-      return `<div class="bar" style="height:${h}px;background:${color};title='₹${v.toFixed(2)}'"></div>`;
+    const bars = sampled.map(p => {
+      const h = Math.max(3, Math.round(((p.nav - min) / range) * 22));
+      const tip = p.date + ': \u20b9' + p.nav.toFixed(4);
+      return '<div class="bar" style="height:' + h + 'px;background:' + color + ';" data-tip="' + tip + '"></div>';
     }).join('');
-    sparkHtml = `<div class="nav-sparkline">${bars}</div>`;
+    sparkHtml = '<div class="nav-sparkline">' + bars + '</div>';
   }
 
   return `<div class="nav-latest">₹${latest.toFixed(4)}</div>
@@ -601,19 +627,71 @@ function getExportData() {
 }
 
 function downloadCSV() {
-  const data = getExportData();
-  if (!data.length) return;
-  const headers = Object.keys(data[0]);
-  const rows = [headers.join(','), ...data.map(r => headers.map(h => `"${String(r[h]).replace(/"/g,'""')}"`).join(','))];
-  const blob = new Blob([rows.join('\r\n')], {type:'text/csv;charset=utf-8;'});
+  const summary = getExportData();
+  if (!summary.length) return;
+
+  const csvRows = [];
+
+  // ── Sheet 1: Fund Summary ──────────────────────────────────────
+  csvRows.push('DISHA – Mutual Fund Export');
+  csvRows.push('Generated on,' + new Date().toLocaleString('en-IN'));
+  csvRows.push('Advisor,Divya Shah | ARN 339305 | +91 7738724256');
+  csvRows.push('');
+
+  csvRows.push('=== FUND SUMMARY ===');
+  const sumHeaders = Object.keys(summary[0]);
+  csvRows.push(sumHeaders.map(h => '"' + h + '"').join(','));
+  summary.forEach(r => {
+    csvRows.push(sumHeaders.map(h => '"' + String(r[h]).replace(/"/g,'""') + '"').join(','));
+  });
+
+  csvRows.push('');
+  csvRows.push('');
+
+  // ── Sheet 2: Full 3-Month Daily NAV History ────────────────────
+  const histFunds = filteredFunds.filter(f => navCache[f.schemeCode] && navCache[f.schemeCode].history && navCache[f.schemeCode].history.length > 0);
+
+  if (histFunds.length > 0) {
+    csvRows.push('=== 3-MONTH DAILY NAV HISTORY ===');
+    csvRows.push('"Scheme Code","Fund Name","AMC","Category","Plan Type","Date","NAV (₹)"');
+    histFunds.forEach(f => {
+      const hist = navCache[f.schemeCode].history;
+      // history is newest-first from API; output oldest-first for readability
+      [...hist].reverse().forEach(h => {
+        csvRows.push([
+          f.schemeCode,
+          '"' + f.schemeName.replace(/"/g,'""') + '"',
+          '"' + f.fundHouse.replace(/"/g,'""') + '"',
+          f.schemeCategory,
+          f.schemeType,
+          h.date,
+          parseFloat(h.nav).toFixed(4)
+        ].join(','));
+      });
+    });
+    csvRows.push('');
+    csvRows.push('Note: History shown for ' + histFunds.length + ' of ' + filteredFunds.length + ' funds (only funds with NAV loaded). Scroll table and wait for loading to complete before downloading for full history.');
+  } else {
+    csvRows.push('=== 3-MONTH DAILY NAV HISTORY ===');
+    csvRows.push('No NAV history loaded yet. Wait for the progress bar to complete then download again.');
+  }
+
+  csvRows.push('');
+  csvRows.push('Disclaimer,Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully.');
+
+  const blob = new Blob([csvRows.join('\r\n')], {type:'text/csv;charset=utf-8;'});
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download='DISHA_MutualFunds.csv'; a.click();
+  const a = document.createElement('a'); a.href=url; a.download='DISHA_MutualFunds_with_NAVHistory.csv'; a.click();
   URL.revokeObjectURL(url);
 }
 
 function downloadExcel() {
   const data = getExportData();
   if (!data.length || typeof XLSX === 'undefined') { downloadCSV(); return; }
+
+  const wb = XLSX.utils.book_new();
+
+  // ── Sheet 1: Fund Summary ──────────────────────────────────────
   const ws = XLSX.utils.json_to_sheet(data);
   ws['!cols'] = [{wch:12},{wch:68},{wch:28},{wch:14},{wch:10},{wch:14},{wch:12},{wch:16}];
   const range = XLSX.utils.decode_range(ws['!ref']);
@@ -621,12 +699,33 @@ function downloadExcel() {
     const cell = ws[XLSX.utils.encode_cell({r:0,c:C})];
     if (cell) cell.s = {font:{bold:true,color:{rgb:'FFFFFF'}},fill:{fgColor:{rgb:'0A2342'}},alignment:{horizontal:'center'}};
   }
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'Mutual Funds');
+  XLSX.utils.book_append_sheet(wb, ws, 'Fund Summary');
+
+  // ── Sheet 2: Full 3-Month Daily NAV History ────────────────────
+  const histFunds = filteredFunds.filter(f => navCache[f.schemeCode] && navCache[f.schemeCode].history && navCache[f.schemeCode].history.length > 0);
+  const histRows = [['Scheme Code','Fund Name','AMC','Category','Plan Type','Date','NAV (₹)']];
+  histFunds.forEach(f => {
+    const hist = navCache[f.schemeCode].history;
+    [...hist].reverse().forEach(h => {
+      histRows.push([f.schemeCode, f.schemeName, f.fundHouse, f.schemeCategory, f.schemeType, h.date, parseFloat(h.nav).toFixed(4)]);
+    });
+  });
+  const wsHist = XLSX.utils.aoa_to_sheet(histRows);
+  wsHist['!cols'] = [{wch:12},{wch:68},{wch:28},{wch:14},{wch:10},{wch:12},{wch:14}];
+  // Style header row
+  for (let C = 0; C <= 6; C++) {
+    const hCell = wsHist[XLSX.utils.encode_cell({r:0,c:C})];
+    if (hCell) hCell.s = {font:{bold:true,color:{rgb:'FFFFFF'}},fill:{fgColor:{rgb:'0A2342'}},alignment:{horizontal:'center'}};
+  }
+  XLSX.utils.book_append_sheet(wb, wsHist, '3M NAV History');
+
+  // ── Sheet 3: About DISHA ───────────────────────────────────────
   const summary = [
     ['DISHA – Mutual Fund Export'],
     ['Generated on', new Date().toLocaleString('en-IN')],
-    ['Total Funds', data.length],
+    ['Total Funds (Summary)', data.length],
+    ['Funds with NAV History', histFunds.length],
+    ['NAV History Rows', histRows.length - 1],
     ['Advisor', 'Divya Shah'],
     ['ARN', '339305'],
     ['Contact', '+91 7738724256'],
@@ -656,6 +755,39 @@ function hideLoader() { document.getElementById('loaderWrap').style.display='non
 document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key==='Enter') applyFilters(); });
 document.getElementById('amcFilter').addEventListener('change', applyFilters);
 document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+
+// ── Sparkline tooltip ─────────────────────────────────────────
+const tip = document.createElement('div');
+tip.id = 'spark-tooltip';
+document.body.appendChild(tip);
+
+document.addEventListener('mouseover', e => {
+  const bar = e.target.closest('[data-tip]');
+  if (!bar) { tip.style.opacity = '0'; return; }
+  tip.textContent = bar.dataset.tip;
+  tip.style.opacity = '1';
+  positionTip(e);
+});
+
+document.addEventListener('mousemove', e => {
+  if (e.target.closest('[data-tip]')) positionTip(e);
+  else tip.style.opacity = '0';
+});
+
+document.addEventListener('mouseout', e => {
+  if (!e.relatedTarget || !e.relatedTarget.closest('[data-tip]')) tip.style.opacity = '0';
+});
+
+function positionTip(e) {
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  let x = e.clientX - tw / 2;
+  let y = e.clientY - th - 10;
+  if (x < 4) x = 4;
+  if (x + tw > window.innerWidth - 4) x = window.innerWidth - tw - 4;
+  if (y < 4) y = e.clientY + 14;
+  tip.style.left = x + 'px';
+  tip.style.top = y + 'px';
+}
 
 loadAllFunds();
 </script>
