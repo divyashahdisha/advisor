@@ -8,133 +8,68 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy: #0A2342;
-    --navy-mid: #14365A;
-    --navy-light: #1E4D7B;
-    --gold: #C9952A;
-    --gold-light: #E8B84B;
-    --gold-pale: #FDF3DC;
-    --white: #FFFFFF;
-    --offwhite: #F8F6F1;
-    --text-dark: #0A2342;
-    --text-mid: #3A5272;
-    --text-light: #6B87A8;
-    --border: #E0E6F0;
-    --success: #1A7A4A;
+    --navy: #0A2342; --navy-mid: #14365A; --navy-light: #1E4D7B;
+    --gold: #C9952A; --gold-light: #E8B84B; --gold-pale: #FDF3DC;
+    --white: #FFFFFF; --offwhite: #F8F6F1;
+    --text-dark: #0A2342; --text-mid: #3A5272; --text-light: #6B87A8;
+    --border: #E0E6F0; --success: #1A7A4A;
   }
-
   html { scroll-behavior: smooth; }
   body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: var(--offwhite); line-height: 1.6; overflow-x: hidden; }
 
-  /* NAV */
   nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--navy);
+    position: sticky; top: 0; z-index: 100; background: var(--navy);
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5vw; height: 68px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    padding: 0 5vw; height: 68px; box-shadow: 0 2px 12px rgba(0,0,0,0.3);
   }
   .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; letter-spacing: 0.25em; color: var(--white); }
   .nav-tagline { font-size: 0.65rem; color: var(--gold-light); letter-spacing: 0.05em; font-weight: 400; display: block; margin-top: -3px; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold-light); }
   .nav-links a.active { color: var(--gold-light); font-weight: 700; }
-  .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 8px 18px; border-radius: 6px; font-weight: 700 !important; transition: background 0.2s !important; }
+  .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 8px 18px; border-radius: 6px; font-weight: 700 !important; }
   .nav-cta:hover { background: var(--gold-light) !important; }
 
-  /* PAGE HERO */
-  .page-hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-    padding: 52px 5vw 48px;
-    text-align: center;
-  }
+  .page-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 48px 5vw 40px; text-align: center; }
   .page-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 10px; display: block; }
   .page-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--white); margin-bottom: 10px; }
   .page-title span { color: var(--gold-light); }
-  .page-sub { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+  .page-sub { color: rgba(255,255,255,0.6); font-size: 0.92rem; }
 
-  /* MAIN */
-  .main-wrap { max-width: 1200px; margin: 0 auto; padding: 36px 5vw 60px; }
+  .main-wrap { max-width: 1280px; margin: 0 auto; padding: 32px 5vw 60px; }
 
   /* FILTER BAR */
-  .filter-bar {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px 28px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 12px rgba(10,35,66,0.06);
-  }
-  .filter-bar-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-light); text-transform: uppercase; margin-bottom: 16px; }
-  .filter-grid { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr auto; gap: 14px; align-items: flex-end; }
-
+  .filter-bar { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 22px 26px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(10,35,66,0.06); }
+  .filter-bar-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-light); text-transform: uppercase; margin-bottom: 14px; }
+  .filter-grid { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr auto; gap: 12px; align-items: flex-end; }
   .filter-group label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-mid); margin-bottom: 6px; }
-  .filter-group input,
-  .filter-group select {
-    width: 100%;
-    padding: 10px 14px;
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    color: var(--text-dark);
-    background: var(--white);
-    outline: none;
-    transition: border-color 0.2s;
-    appearance: none;
-    -webkit-appearance: none;
+  .filter-group input, .filter-group select {
+    width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--text-dark);
+    background: var(--white); outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none;
   }
-  .filter-group input:focus,
-  .filter-group select:focus { border-color: var(--gold); }
+  .filter-group input:focus, .filter-group select:focus { border-color: var(--gold); }
   .select-wrap { position: relative; }
   .select-wrap::after { content: '▾'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-light); pointer-events: none; font-size: 0.8rem; }
-
-  .btn-search {
-    background: var(--navy);
-    color: var(--white);
-    border: none;
-    border-radius: 8px;
-    padding: 10px 22px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
-    height: 42px;
-  }
+  .btn-search { background: var(--navy); color: var(--white); border: none; border-radius: 8px; padding: 10px 22px; font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: background 0.2s; white-space: nowrap; height: 42px; }
   .btn-search:hover { background: var(--navy-light); }
-  .btn-search:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* LOADING PROGRESS */
+  .progress-bar-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; display: none; }
+  .progress-label { font-size: 0.82rem; color: var(--text-mid); margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .progress-label span { font-weight: 700; color: var(--navy); }
+  .progress-track { background: var(--border); border-radius: 4px; height: 6px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 4px; transition: width 0.3s ease; width: 0%; }
 
   /* STATUS BAR */
-  .status-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
+  .status-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
   .status-text { font-size: 0.85rem; color: var(--text-mid); }
   .status-text strong { color: var(--navy); }
-
   .download-group { display: flex; gap: 10px; }
-
-  .btn-dl {
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 8px 16px;
-    border-radius: 7px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    transition: background 0.18s, transform 0.12s;
-    text-decoration: none;
-  }
+  .btn-dl { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 7px; font-size: 0.82rem; font-weight: 700; cursor: pointer; border: none; transition: background 0.18s, transform 0.12s; }
   .btn-dl:hover { transform: translateY(-1px); }
   .btn-dl-excel { background: #1D6F42; color: white; }
   .btn-dl-excel:hover { background: #176038; }
@@ -142,7 +77,7 @@
   .btn-dl-csv:hover { background: var(--gold-light); }
   .btn-dl:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
-  /* LOADING */
+  /* LOADER */
   .loader-wrap { text-align: center; padding: 60px 0; display: none; }
   .loader { display: inline-block; width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.7s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -155,153 +90,69 @@
   .empty-sub { font-size: 0.85rem; color: var(--text-mid); }
 
   /* TABLE */
-  .table-wrap {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(10,35,66,0.06);
-  }
+  .table-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(10,35,66,0.06); }
   .table-scroll { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  thead { background: var(--navy); position: sticky; top: 68px; }
-  thead th {
-    padding: 13px 16px;
-    text-align: left;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    color: rgba(255,255,255,0.7);
-    text-transform: uppercase;
-    white-space: nowrap;
-    cursor: pointer;
-    user-select: none;
-    transition: color 0.15s;
-  }
+  thead { background: var(--navy); }
+  thead th { padding: 12px 14px; text-align: left; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.07em; color: rgba(255,255,255,0.7); text-transform: uppercase; white-space: nowrap; cursor: pointer; user-select: none; transition: color 0.15s; }
   thead th:hover { color: var(--gold-light); }
   thead th.sorted { color: var(--gold-light); }
   thead th .sort-icon { margin-left: 4px; opacity: 0.5; }
   thead th.sorted .sort-icon { opacity: 1; }
-
   tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: #F0F5FF; }
-  tbody td { padding: 12px 16px; color: var(--text-dark); vertical-align: middle; }
+  tbody td { padding: 11px 14px; color: var(--text-dark); vertical-align: middle; }
 
-  .fund-name { font-weight: 600; color: var(--navy); max-width: 340px; line-height: 1.4; }
-  .scheme-code { font-size: 0.72rem; color: var(--text-light); margin-top: 2px; font-family: monospace; }
+  .fund-name { font-weight: 600; color: var(--navy); max-width: 320px; line-height: 1.4; }
+  .scheme-code { font-size: 0.7rem; color: var(--text-light); margin-top: 2px; font-family: monospace; }
 
-  .badge {
-    display: inline-block;
-    padding: 3px 9px;
-    border-radius: 20px;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-  }
+  .badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
   .badge-equity { background: #E6F1FB; color: #0C447C; }
   .badge-debt { background: #EAF3DE; color: #27500A; }
   .badge-hybrid { background: #FAEEDA; color: #633806; }
   .badge-other { background: #F1EFE8; color: #444441; }
   .badge-solution { background: #FBEAF0; color: #72243E; }
 
-  .nav-val { font-weight: 700; color: var(--navy); font-family: 'Inter', sans-serif; }
-  .nav-date { font-size: 0.7rem; color: var(--text-light); margin-top: 2px; }
-
-  .btn-enquire {
-    display: inline-flex; align-items: center; gap: 5px;
-    background: #25D366;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 0.74rem;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.15s;
-  }
-  .btn-enquire:hover { background: #1ebe5a; }
+  /* NAV CELL */
+  .nav-cell { min-width: 160px; }
+  .nav-latest { font-weight: 700; color: var(--navy); font-size: 0.88rem; }
+  .nav-date { font-size: 0.68rem; color: var(--text-light); margin-top: 1px; }
+  .nav-sparkline { display: flex; align-items: flex-end; gap: 2px; margin-top: 5px; height: 24px; }
+  .nav-sparkline .bar { flex: 1; border-radius: 2px 2px 0 0; min-width: 5px; transition: opacity 0.15s; }
+  .nav-sparkline .bar:hover { opacity: 0.7; }
+  .nav-loading { display: inline-block; font-size: 0.72rem; color: var(--text-light); }
+  .nav-change { font-size: 0.7rem; font-weight: 700; margin-top: 2px; }
+  .nav-change.up { color: #1A7A4A; }
+  .nav-change.down { color: #C0392B; }
 
   /* PAGINATION */
-  .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 20px;
-    border-top: 1px solid var(--border);
-    flex-wrap: wrap;
-  }
-  .page-btn {
-    padding: 6px 12px;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    background: var(--white);
-    color: var(--text-dark);
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    min-width: 36px;
-    text-align: center;
-  }
+  .pagination { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 18px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .page-btn { padding: 6px 12px; border: 1.5px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text-dark); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.15s; min-width: 36px; text-align: center; }
   .page-btn:hover { border-color: var(--gold); color: var(--gold); }
   .page-btn.active { background: var(--navy); border-color: var(--navy); color: white; }
   .page-btn:disabled { opacity: 0.35; cursor: not-allowed; }
   .page-info { font-size: 0.8rem; color: var(--text-light); padding: 0 8px; }
 
   /* DISCLAIMER */
-  .disclaimer {
-    margin-top: 28px;
-    background: #FFF8E7;
-    border: 1px solid #F0D88A;
-    border-left: 4px solid var(--gold);
-    border-radius: 8px;
-    padding: 14px 18px;
-    font-size: 0.78rem;
-    color: #7A5C10;
-    line-height: 1.6;
-  }
+  .disclaimer { margin-top: 24px; background: #FFF8E7; border: 1px solid #F0D88A; border-left: 4px solid var(--gold); border-radius: 8px; padding: 13px 17px; font-size: 0.77rem; color: #7A5C10; line-height: 1.6; }
 
-  /* FOOTER */
-  footer {
-    background: #050F1E;
-    padding: 28px 5vw;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
-  }
+  footer { background: #050F1E; padding: 26px 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
   .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; letter-spacing: 0.2em; color: var(--white); }
   .footer-note { font-size: 0.72rem; color: rgba(255,255,255,0.3); max-width: 360px; }
   .footer-back { font-size: 0.82rem; color: var(--gold-light); text-decoration: none; }
   .footer-back:hover { text-decoration: underline; }
 
-  /* WA FLOAT */
-  .wa-float {
-    position: fixed; bottom: 28px; right: 28px; z-index: 999;
-    background: #25D366; border-radius: 50%; width: 56px; height: 56px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-    text-decoration: none; transition: transform 0.2s;
-  }
+  .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25D366; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.2s; }
   .wa-float:hover { transform: scale(1.1); }
   .wa-float svg { width: 28px; height: 28px; fill: white; }
 
-  @media (max-width: 768px) {
-    .filter-grid { grid-template-columns: 1fr 1fr; }
-    .btn-search { grid-column: 1 / -1; }
-    .nav-links { display: none; }
-    .status-bar { flex-direction: column; align-items: flex-start; }
-  }
-  @media (max-width: 480px) {
-    .filter-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 768px) { .filter-grid { grid-template-columns: 1fr 1fr; } .btn-search { grid-column: 1 / -1; } .nav-links { display: none; } .status-bar { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 480px) { .filter-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-brand">
     <div>
@@ -314,21 +165,18 @@
     <li><a href="index.html#calculator">SIP Calculator</a></li>
     <li><a href="mf-search.html" class="active">Fund Explorer</a></li>
     <li><a href="index.html#contact">Contact</a></li>
-    <li><a href="https://wa.me/917738724256?text=Hi%20Divya%2C%20I%20would%20like%20to%20open%20a%20new%20investment%20account." target="_blank" class="nav-cta">Open Account</a></li>
+    <li><a href="http://p.njw.bz/102689" target="_blank" class="nav-cta">Open Account</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="page-hero">
   <span class="page-eyebrow">DISHA Fund Explorer</span>
   <h1 class="page-title">Explore <span>All Mutual Funds</span></h1>
-  <p class="page-sub">Search by AMC, category, or fund name · Live NAV data · Download to Excel or CSV</p>
+  <p class="page-sub">Search by AMC, category, or fund name &nbsp;·&nbsp; 3-month NAV history with sparklines &nbsp;·&nbsp; Download to Excel or CSV</p>
 </div>
 
-<!-- MAIN -->
 <div class="main-wrap">
 
-  <!-- FILTER BAR -->
   <div class="filter-bar">
     <div class="filter-bar-title">Filter Funds</div>
     <div class="filter-grid">
@@ -339,9 +187,7 @@
       <div class="filter-group">
         <label for="amcFilter">AMC / Fund House</label>
         <div class="select-wrap">
-          <select id="amcFilter">
-            <option value="">All AMCs</option>
-          </select>
+          <select id="amcFilter"><option value="">All AMCs</option></select>
         </div>
       </div>
       <div class="filter-group">
@@ -359,38 +205,39 @@
       </div>
       <div class="filter-group">
         <label>&nbsp;</label>
-        <button class="btn-search" id="searchBtn" onclick="applyFilters()">Search Funds</button>
+        <button class="btn-search" onclick="applyFilters()">Search Funds</button>
       </div>
     </div>
   </div>
 
-  <!-- STATUS + DOWNLOAD -->
+  <!-- NAV PREFETCH PROGRESS -->
+  <div class="progress-bar-wrap" id="progressWrap">
+    <div class="progress-label">
+      <span id="progressLabel">Fetching NAV history for visible funds…</span>
+      <span id="progressCount">0 / 0</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
   <div class="status-bar">
     <div class="status-text" id="statusText">Loading mutual fund data…</div>
     <div class="download-group">
-      <button class="btn-dl btn-dl-excel" id="btnExcel" onclick="downloadExcel()" disabled>
-        ⬇ Download Excel
-      </button>
-      <button class="btn-dl btn-dl-csv" id="btnCsv" onclick="downloadCSV()" disabled>
-        ⬇ Download CSV
-      </button>
+      <button class="btn-dl btn-dl-excel" id="btnExcel" onclick="downloadExcel()" disabled>⬇ Download Excel</button>
+      <button class="btn-dl btn-dl-csv" id="btnCsv" onclick="downloadCSV()" disabled>⬇ Download CSV</button>
     </div>
   </div>
 
-  <!-- LOADER -->
   <div class="loader-wrap" id="loaderWrap">
     <div class="loader"></div>
-    <div class="loader-text" id="loaderText">Fetching fund data from AMFI…</div>
+    <div class="loader-text" id="loaderText">Fetching fund list from AMFI…</div>
   </div>
 
-  <!-- EMPTY STATE -->
   <div class="empty-state" id="emptyState">
     <div class="empty-icon">🔍</div>
     <div class="empty-title">No funds found</div>
     <div class="empty-sub">Try a different search term or clear the filters.</div>
   </div>
 
-  <!-- TABLE -->
   <div class="table-wrap" id="tableWrap" style="display:none;">
     <div class="table-scroll">
       <table>
@@ -400,8 +247,7 @@
             <th onclick="sortBy('fundHouse')" id="th-amc">AMC <span class="sort-icon">↕</span></th>
             <th onclick="sortBy('schemeCategory')" id="th-cat">Category <span class="sort-icon">↕</span></th>
             <th onclick="sortBy('schemeType')" id="th-type">Type <span class="sort-icon">↕</span></th>
-            <th>Latest NAV</th>
-            <th>Enquire</th>
+            <th>NAV &amp; 3-Month Trend</th>
           </tr>
         </thead>
         <tbody id="tableBody"></tbody>
@@ -410,44 +256,39 @@
     <div class="pagination" id="pagination"></div>
   </div>
 
-  <!-- DISCLAIMER -->
   <div class="disclaimer">
-    ⚠️ <strong>Disclaimer:</strong> NAV data is sourced from <a href="https://www.mfapi.in" target="_blank" style="color: inherit;">mfapi.in</a> which publishes data from AMFI India. Mutual fund investments are subject to market risks. Past performance is not indicative of future results. Please read all scheme-related documents carefully. For personalised guidance, contact Divya Shah (ARN: 339305) at <strong>+91 7738724256</strong>.
+    ⚠️ <strong>Disclaimer:</strong> NAV data is sourced from <a href="https://www.mfapi.in" target="_blank" style="color:inherit;">mfapi.in</a> (AMFI India). Mutual fund investments are subject to market risks. Past performance is not indicative of future results. For personalised goal-based investment planning, contact Divya Shah (ARN: 339305) at <strong>+91 7738724256</strong>.
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">D I S H A</div>
   <div class="footer-note">AMFI Registered Mutual Fund Distributor · ARN: 339305 · Mutual fund investments are subject to market risks.</div>
   <a href="index.html" class="footer-back">← Back to main site</a>
 </footer>
 
-<!-- WA FLOAT -->
-<a href="https://wa.me/917738724256?text=Hi%20Divya%2C%20I%20found%20a%20fund%20I%27m%20interested%20in.%20Can%20you%20help%20me%20invest?" target="_blank" class="wa-float" title="Chat on WhatsApp">
+<a href="https://wa.me/917738724256?text=Hi%20Divya%2C%20I%20found%20a%20fund%20I%27m%20interested%20in.%20Can%20you%20help%20me%20with%20goal-based%20investing?" target="_blank" class="wa-float" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.524 5.845L0 24l6.336-1.502A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.034-1.386l-.361-.214-3.762.891.949-3.672-.235-.376A9.779 9.779 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182S21.818 6.578 21.818 12 17.422 21.818 12 21.818z"/></svg>
 </a>
 
-<!-- SheetJS for Excel export -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
 <script>
 const MF_API = 'https://api.mfapi.in/mf';
-const WA_NUM = '917738724256';
 const PAGE_SIZE = 50;
+// Keep 90 days of NAV history
+const HISTORY_DAYS = 90;
 
-let allFunds = [];       // full list from API (~20k schemes)
-let navCache = {};       // schemeCode -> {nav, date}
-let filteredFunds = [];  // after search/filter
+let allFunds = [];
+let navCache = {};       // schemeCode -> { nav, date, history: [{date,nav},...] }
+let filteredFunds = [];
 let sortKey = 'schemeName';
 let sortAsc = true;
 let currentPage = 1;
+let navFetchQueue = [];
+let fetchingNav = false;
 
-// ── Derived AMC list from scheme names ─────────────────────────
-// mfapi /mf returns: [{schemeCode, schemeName}]
-// We'll parse AMC from the scheme name (everything before " - " or first word group)
+// ── AMC / Category parsers ─────────────────────────────────────
 function parseAMC(name) {
-  // Common AMC prefixes in AMFI names
   const amcs = [
     'HDFC','SBI','ICICI Prudential','Axis','Kotak','Mirae Asset','Nippon India',
     'DSP','Aditya Birla Sun Life','Franklin Templeton','UTI','Tata','Edelweiss',
@@ -460,7 +301,6 @@ function parseAMC(name) {
   for (const a of amcs) {
     if (name.toUpperCase().startsWith(a.toUpperCase())) return a;
   }
-  // fallback: first word(s) before " Mutual Fund" or " -"
   const m = name.match(/^([^-–]+?)(?:\s+Mutual Fund|\s+-|\s+–)/i);
   if (m) return m[1].trim();
   return name.split(' ').slice(0, 2).join(' ');
@@ -472,7 +312,8 @@ function parseCategory(name) {
       n.includes('mid cap') || n.includes('small cap') || n.includes('flexi') ||
       n.includes('multi cap') || n.includes('value') || n.includes('focused') ||
       n.includes('contra') || n.includes('dividend yield') || n.includes('thematic') ||
-      n.includes('sectoral') || n.includes('infrastructure') || n.includes('banking') && !n.includes('psu debt') ||
+      n.includes('sectoral') || n.includes('infrastructure') ||
+      (n.includes('banking') && !n.includes('psu debt')) ||
       n.includes('pharma') || n.includes('technology') || n.includes('consumption')) return 'Equity';
   if (n.includes('debt') || n.includes('liquid') || n.includes('overnight') ||
       n.includes('ultra short') || n.includes('short dur') || n.includes('low dur') ||
@@ -483,18 +324,17 @@ function parseCategory(name) {
   if (n.includes('hybrid') || n.includes('balanced') || n.includes('arbitrage') ||
       n.includes('aggressive') || n.includes('conservative') || n.includes('dynamic asset') ||
       n.includes('multi asset') || n.includes('equity savings')) return 'Hybrid';
-  if (n.includes('solution') || n.includes('retirement') || n.includes("children")) return 'Solution';
+  if (n.includes('solution') || n.includes('retirement') || n.includes('children')) return 'Solution';
   return 'Other';
 }
 
-// ── Load all funds ──────────────────────────────────────────────
+// ── Boot ────────────────────────────────────────────────────────
 async function loadAllFunds() {
   showLoader('Fetching complete fund list from AMFI…');
   try {
     const res = await fetch(MF_API);
-    if (!res.ok) throw new Error('API error ' + res.status);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const raw = await res.json();
-
     allFunds = raw.map(f => ({
       schemeCode: f.schemeCode,
       schemeName: f.schemeName,
@@ -502,15 +342,13 @@ async function loadAllFunds() {
       schemeCategory: parseCategory(f.schemeName),
       schemeType: f.schemeName.toLowerCase().includes('direct') ? 'Direct' :
                   f.schemeName.toLowerCase().includes('regular') ? 'Regular' : 'Other',
-      nav: null, navDate: null
     }));
-
     populateAMCDropdown();
     hideLoader();
     applyFilters();
   } catch(e) {
     hideLoader();
-    document.getElementById('statusText').textContent = 'Error loading data. Please refresh.';
+    document.getElementById('statusText').textContent = 'Error loading data — please refresh.';
     document.getElementById('emptyState').style.display = 'block';
   }
 }
@@ -525,46 +363,38 @@ function populateAMCDropdown() {
   });
 }
 
-// ── Filter + sort ───────────────────────────────────────────────
+// ── Filters & sort ─────────────────────────────────────────────
 function applyFilters() {
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
   const amc = document.getElementById('amcFilter').value;
   const cat = document.getElementById('categoryFilter').value;
-
   filteredFunds = allFunds.filter(f => {
-    const matchQ = !q || f.schemeName.toLowerCase().includes(q) || f.fundHouse.toLowerCase().includes(q);
-    const matchAMC = !amc || f.fundHouse === amc;
-    const matchCat = !cat || f.schemeCategory === cat;
-    return matchQ && matchAMC && matchCat;
+    const mQ = !q || f.schemeName.toLowerCase().includes(q) || f.fundHouse.toLowerCase().includes(q);
+    const mA = !amc || f.fundHouse === amc;
+    const mC = !cat || f.schemeCategory === cat;
+    return mQ && mA && mC;
   });
-
   sortFunds();
   currentPage = 1;
   renderPage();
 }
 
 function sortBy(key) {
-  if (sortKey === key) sortAsc = !sortAsc;
-  else { sortKey = key; sortAsc = true; }
-
+  if (sortKey === key) sortAsc = !sortAsc; else { sortKey = key; sortAsc = true; }
   document.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
-  const thMap = {schemeName:'th-name', fundHouse:'th-amc', schemeCategory:'th-cat', schemeType:'th-type'};
-  if (thMap[key]) document.getElementById(thMap[key]).classList.add('sorted');
-
-  sortFunds();
-  currentPage = 1;
-  renderPage();
+  const map = {schemeName:'th-name', fundHouse:'th-amc', schemeCategory:'th-cat', schemeType:'th-type'};
+  if (map[key]) document.getElementById(map[key]).classList.add('sorted');
+  sortFunds(); currentPage = 1; renderPage();
 }
 
 function sortFunds() {
   filteredFunds.sort((a, b) => {
-    const av = (a[sortKey] || '').toLowerCase();
-    const bv = (b[sortKey] || '').toLowerCase();
+    const av = (a[sortKey] || '').toLowerCase(), bv = (b[sortKey] || '').toLowerCase();
     return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
   });
 }
 
-// ── Render ──────────────────────────────────────────────────────
+// ── Render ─────────────────────────────────────────────────────
 function renderPage() {
   const total = filteredFunds.length;
   const start = (currentPage - 1) * PAGE_SIZE;
@@ -590,48 +420,138 @@ function renderPage() {
   const tbody = document.getElementById('tableBody');
   tbody.innerHTML = '';
 
+  const catClass = {Equity:'badge-equity',Debt:'badge-debt',Hybrid:'badge-hybrid',Solution:'badge-solution',Other:'badge-other'};
+
   pageData.forEach(f => {
     const tr = document.createElement('tr');
-    const catClass = {Equity:'badge-equity', Debt:'badge-debt', Hybrid:'badge-hybrid', Solution:'badge-solution', Other:'badge-other'}[f.schemeCategory] || 'badge-other';
-
-    const navDisplay = navCache[f.schemeCode]
-      ? `<div class="nav-val">₹${parseFloat(navCache[f.schemeCode].nav).toFixed(4)}</div><div class="nav-date">${navCache[f.schemeCode].date}</div>`
-      : `<button onclick="fetchNAV(${f.schemeCode}, this)" style="background:none;border:1px solid var(--border);border-radius:5px;padding:4px 10px;font-size:0.75rem;color:var(--text-mid);cursor:pointer;">Load NAV</button>`;
-
-    const waMsg = encodeURIComponent(`Hi Divya, I'm interested in investing in: ${f.schemeName} (Code: ${f.schemeCode}). Please guide me.`);
-
     tr.innerHTML = `
       <td>
         <div class="fund-name">${escHtml(f.schemeName)}</div>
         <div class="scheme-code">Code: ${f.schemeCode}</div>
       </td>
-      <td style="white-space:nowrap; font-size:0.8rem;">${escHtml(f.fundHouse)}</td>
-      <td><span class="badge ${catClass}">${f.schemeCategory}</span></td>
-      <td style="font-size:0.78rem; color:var(--text-mid);">${f.schemeType}</td>
-      <td>${navDisplay}</td>
-      <td>
-        <a href="https://wa.me/${WA_NUM}?text=${waMsg}" target="_blank" class="btn-enquire">
-          💬 Invest
-        </a>
-      </td>`;
+      <td style="white-space:nowrap;font-size:0.8rem;">${escHtml(f.fundHouse)}</td>
+      <td><span class="badge ${catClass[f.schemeCategory]||'badge-other'}">${f.schemeCategory}</span></td>
+      <td style="font-size:0.78rem;color:var(--text-mid);">${f.schemeType}</td>
+      <td class="nav-cell" id="navcell-${f.schemeCode}">${renderNavCell(f.schemeCode)}</td>`;
     tbody.appendChild(tr);
   });
 
   renderPagination(total);
+
+  // Queue NAV fetches for this page's uncached funds
+  const uncached = pageData.filter(f => !navCache[f.schemeCode]).map(f => f.schemeCode);
+  queueNavFetch(uncached);
 }
 
-async function fetchNAV(code, btn) {
-  btn.textContent = '…';
-  try {
-    const res = await fetch(`${MF_API}/${code}/latest`);
-    const json = await res.json();
-    if (json.data && json.data.length) {
-      navCache[code] = { nav: json.data[0].nav, date: json.data[0].date };
-    }
-  } catch(_) {}
-  renderPage();
+function renderNavCell(code) {
+  const c = navCache[code];
+  if (!c) return `<span class="nav-loading">Loading…</span>`;
+
+  const latest = parseFloat(c.nav);
+  const hist = c.history || [];
+  // 3-month change
+  let changeHtml = '';
+  if (hist.length >= 2) {
+    const oldest = parseFloat(hist[hist.length - 1].nav);
+    const pct = ((latest - oldest) / oldest * 100).toFixed(2);
+    const dir = pct >= 0 ? 'up' : 'down';
+    const arrow = pct >= 0 ? '▲' : '▼';
+    changeHtml = `<div class="nav-change ${dir}">${arrow} ${Math.abs(pct)}% (3M)</div>`;
+  }
+
+  // Sparkline bars
+  let sparkHtml = '';
+  if (hist.length > 1) {
+    const vals = [...hist].reverse().map(h => parseFloat(h.nav)); // oldest→newest
+    const min = Math.min(...vals), max = Math.max(...vals), range = max - min || 1;
+    // Sample up to 20 bars
+    const step = Math.max(1, Math.floor(vals.length / 20));
+    const sampled = vals.filter((_, i) => i % step === 0);
+    const isUp = sampled[sampled.length-1] >= sampled[0];
+    const color = isUp ? '#1A7A4A' : '#C0392B';
+    const bars = sampled.map(v => {
+      const h = Math.max(3, Math.round(((v - min) / range) * 22));
+      return `<div class="bar" style="height:${h}px;background:${color};title='₹${v.toFixed(2)}'"></div>`;
+    }).join('');
+    sparkHtml = `<div class="nav-sparkline">${bars}</div>`;
+  }
+
+  return `<div class="nav-latest">₹${latest.toFixed(4)}</div>
+          <div class="nav-date">${c.date}</div>
+          ${changeHtml}
+          ${sparkHtml}`;
 }
 
+// ── NAV fetch queue (batch, non-blocking) ──────────────────────
+function queueNavFetch(codes) {
+  // Deduplicate
+  codes.forEach(c => { if (!navFetchQueue.includes(c)) navFetchQueue.push(c); });
+  if (!fetchingNav) processFetchQueue();
+}
+
+async function processFetchQueue() {
+  if (navFetchQueue.length === 0) {
+    fetchingNav = false;
+    document.getElementById('progressWrap').style.display = 'none';
+    return;
+  }
+  fetchingNav = true;
+  const total = navFetchQueue.length;
+  let done = 0;
+
+  document.getElementById('progressWrap').style.display = 'block';
+  document.getElementById('progressCount').textContent = `0 / ${total}`;
+  document.getElementById('progressFill').style.width = '0%';
+
+  // Fetch in parallel batches of 5
+  const BATCH = 5;
+  while (navFetchQueue.length > 0) {
+    const batch = navFetchQueue.splice(0, BATCH);
+    await Promise.all(batch.map(async code => {
+      try {
+        const res = await fetch(`${MF_API}/${code}`);
+        const json = await res.json();
+        if (json.data && json.data.length) {
+          // Trim to last 90 days
+          const cutoff = new Date();
+          cutoff.setDate(cutoff.getDate() - HISTORY_DAYS);
+          const history = json.data.filter(d => {
+            const parts = d.date.split('-');
+            const dt = new Date(parts[2], parts[1]-1, parts[0]);
+            return dt >= cutoff;
+          });
+          navCache[code] = {
+            nav: json.data[0].nav,
+            date: json.data[0].date,
+            history
+          };
+        }
+      } catch(_) {}
+      done++;
+    }));
+
+    document.getElementById('progressCount').textContent = `${done} / ${total}`;
+    document.getElementById('progressFill').style.width = `${Math.round(done/total*100)}%`;
+    document.getElementById('progressLabel').textContent =
+      `Loading NAV history (${Math.round(done/total*100)}% complete)…`;
+
+    // Re-render table cells as data arrives
+    refreshNavCells();
+  }
+
+  document.getElementById('progressWrap').style.display = 'none';
+  fetchingNav = false;
+}
+
+function refreshNavCells() {
+  // Update only the cells currently visible in the table
+  document.querySelectorAll('[id^="navcell-"]').forEach(cell => {
+    const code = parseInt(cell.id.replace('navcell-', ''));
+    if (navCache[code]) cell.innerHTML = renderNavCell(code);
+  });
+}
+
+// ── Pagination ─────────────────────────────────────────────────
 function renderPagination(total) {
   const pages = Math.ceil(total / PAGE_SIZE);
   const pag = document.getElementById('pagination');
@@ -641,42 +561,43 @@ function renderPagination(total) {
   const addBtn = (label, page, disabled=false, active=false) => {
     const b = document.createElement('button');
     b.className = 'page-btn' + (active ? ' active' : '');
-    b.textContent = label;
-    b.disabled = disabled;
-    b.onclick = () => { currentPage = page; renderPage(); window.scrollTo({top: 200, behavior:'smooth'}); };
+    b.textContent = label; b.disabled = disabled;
+    b.onclick = () => { currentPage = page; renderPage(); window.scrollTo({top:200,behavior:'smooth'}); };
     pag.appendChild(b);
   };
 
-  addBtn('‹ Prev', currentPage - 1, currentPage === 1);
-
-  const inf = document.createElement('span');
-  inf.className = 'page-info';
-  inf.textContent = `Page ${currentPage} of ${pages}`;
-
-  // page number buttons (show up to 7 around current)
+  addBtn('‹ Prev', currentPage-1, currentPage===1);
+  const delta = 2;
   const range = [];
-  const delta = 3;
-  for (let i = Math.max(1, currentPage - delta); i <= Math.min(pages, currentPage + delta); i++) range.push(i);
-  if (range[0] > 1) { addBtn('1', 1, false, currentPage===1); if (range[0] > 2) pag.appendChild(Object.assign(document.createElement('span'), {className:'page-info', textContent:'…'})); }
-  range.forEach(p => addBtn(p, p, false, p === currentPage));
-  if (range[range.length-1] < pages) { if (range[range.length-1] < pages-1) pag.appendChild(Object.assign(document.createElement('span'), {className:'page-info', textContent:'…'})); addBtn(pages, pages, false, currentPage===pages); }
-
-  pag.appendChild(inf);
-  addBtn('Next ›', currentPage + 1, currentPage === pages);
+  for (let i = Math.max(1, currentPage-delta); i <= Math.min(pages, currentPage+delta); i++) range.push(i);
+  if (range[0] > 1) { addBtn('1', 1, false, currentPage===1); if (range[0]>2) pag.appendChild(Object.assign(document.createElement('span'),{className:'page-info',textContent:'…'})); }
+  range.forEach(p => addBtn(p, p, false, p===currentPage));
+  if (range[range.length-1] < pages) { if (range[range.length-1]<pages-1) pag.appendChild(Object.assign(document.createElement('span'),{className:'page-info',textContent:'…'})); addBtn(pages, pages, false, currentPage===pages); }
+  const inf = document.createElement('span'); inf.className='page-info'; inf.textContent=`Page ${currentPage} of ${pages}`; pag.appendChild(inf);
+  addBtn('Next ›', currentPage+1, currentPage===pages);
 }
 
-// ── Downloads ───────────────────────────────────────────────────
+// ── Downloads ──────────────────────────────────────────────────
 function getExportData() {
-  return filteredFunds.map(f => ({
-    'Scheme Code': f.schemeCode,
-    'Fund Name': f.schemeName,
-    'AMC / Fund House': f.fundHouse,
-    'Category': f.schemeCategory,
-    'Plan Type': f.schemeType,
-    'Latest NAV': navCache[f.schemeCode] ? navCache[f.schemeCode].nav : 'Not loaded',
-    'NAV Date': navCache[f.schemeCode] ? navCache[f.schemeCode].date : '',
-    'Enquire': `https://wa.me/${WA_NUM}?text=${encodeURIComponent('Hi Divya, I am interested in ' + f.schemeName)}`
-  }));
+  return filteredFunds.map(f => {
+    const c = navCache[f.schemeCode];
+    let change3m = '';
+    if (c && c.history && c.history.length >= 2) {
+      const latest = parseFloat(c.nav);
+      const oldest = parseFloat(c.history[c.history.length-1].nav);
+      change3m = ((latest - oldest)/oldest*100).toFixed(2) + '%';
+    }
+    return {
+      'Scheme Code': f.schemeCode,
+      'Fund Name': f.schemeName,
+      'AMC / Fund House': f.fundHouse,
+      'Category': f.schemeCategory,
+      'Plan Type': f.schemeType,
+      'Latest NAV (₹)': c ? parseFloat(c.nav).toFixed(4) : '',
+      'NAV Date': c ? c.date : '',
+      '3-Month Change': change3m,
+    };
+  });
 }
 
 function downloadCSV() {
@@ -684,40 +605,24 @@ function downloadCSV() {
   if (!data.length) return;
   const headers = Object.keys(data[0]);
   const rows = [headers.join(','), ...data.map(r => headers.map(h => `"${String(r[h]).replace(/"/g,'""')}"`).join(','))];
-  const blob = new Blob([rows.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
+  const blob = new Blob([rows.join('\r\n')], {type:'text/csv;charset=utf-8;'});
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href = url; a.download = 'DISHA_MutualFunds.csv'; a.click();
+  const a = document.createElement('a'); a.href=url; a.download='DISHA_MutualFunds.csv'; a.click();
   URL.revokeObjectURL(url);
 }
 
 function downloadExcel() {
   const data = getExportData();
-  if (!data.length || typeof XLSX === 'undefined') { alert('Excel library not loaded, please try CSV.'); return; }
-
+  if (!data.length || typeof XLSX === 'undefined') { downloadCSV(); return; }
   const ws = XLSX.utils.json_to_sheet(data);
-
-  // Column widths
-  ws['!cols'] = [
-    {wch:12},{wch:70},{wch:30},{wch:14},{wch:12},{wch:12},{wch:12},{wch:50}
-  ];
-
-  // Header row styling
+  ws['!cols'] = [{wch:12},{wch:68},{wch:28},{wch:14},{wch:10},{wch:14},{wch:12},{wch:16}];
   const range = XLSX.utils.decode_range(ws['!ref']);
   for (let C = range.s.c; C <= range.e.c; C++) {
-    const cell = ws[XLSX.utils.encode_cell({r:0, c:C})];
-    if (cell) {
-      cell.s = {
-        font: { bold: true, color: { rgb: 'FFFFFF' } },
-        fill: { fgColor: { rgb: '0A2342' } },
-        alignment: { horizontal: 'center' }
-      };
-    }
+    const cell = ws[XLSX.utils.encode_cell({r:0,c:C})];
+    if (cell) cell.s = {font:{bold:true,color:{rgb:'FFFFFF'}},fill:{fgColor:{rgb:'0A2342'}},alignment:{horizontal:'center'}};
   }
-
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Mutual Funds');
-
-  // Summary sheet
   const summary = [
     ['DISHA – Mutual Fund Export'],
     ['Generated on', new Date().toLocaleString('en-IN')],
@@ -726,37 +631,32 @@ function downloadExcel() {
     ['ARN', '339305'],
     ['Contact', '+91 7738724256'],
     ['Email', 'divya.ce@gmail.com'],
+    ['Open Account', 'http://p.njw.bz/102689'],
     [],
-    ['Disclaimer', 'Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing.']
+    ['Note', 'NAV history covers last 3 months. 3-Month Change = (Latest NAV - 90-day-ago NAV) / 90-day-ago NAV × 100'],
+    ['Disclaimer', 'Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully.']
   ];
   const ws2 = XLSX.utils.aoa_to_sheet(summary);
-  ws2['!cols'] = [{wch:20},{wch:60}];
+  ws2['!cols'] = [{wch:20},{wch:70}];
   XLSX.utils.book_append_sheet(wb, ws2, 'About DISHA');
-
   XLSX.writeFile(wb, 'DISHA_MutualFunds.xlsx');
 }
 
-// ── Helpers ─────────────────────────────────────────────────────
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-
 function showLoader(msg) {
-  document.getElementById('loaderWrap').style.display = 'block';
-  document.getElementById('loaderText').textContent = msg || 'Loading…';
-  document.getElementById('tableWrap').style.display = 'none';
-  document.getElementById('emptyState').style.display = 'none';
+  document.getElementById('loaderWrap').style.display='block';
+  document.getElementById('loaderText').textContent = msg||'Loading…';
+  document.getElementById('tableWrap').style.display='none';
+  document.getElementById('emptyState').style.display='none';
 }
-function hideLoader() { document.getElementById('loaderWrap').style.display = 'none'; }
+function hideLoader() { document.getElementById('loaderWrap').style.display='none'; }
 
-// ── Search on Enter ─────────────────────────────────────────────
-document.getElementById('searchInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') applyFilters();
-});
+document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key==='Enter') applyFilters(); });
 document.getElementById('amcFilter').addEventListener('change', applyFilters);
 document.getElementById('categoryFilter').addEventListener('change', applyFilters);
 
-// ── Boot ────────────────────────────────────────────────────────
 loadAllFunds();
 </script>
 </body>
