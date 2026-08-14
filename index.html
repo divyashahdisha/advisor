@@ -1,14 +1,1208 @@
-<div class="hero-credentials-bar">
-    <div class="credential-chip">
-        <span class="dot"></span>
-        <strong>AMFI ARN:</strong> 339305
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DISHA — Financial Advisory | Divya Shah (AMFI & SIF Distributor)</title>
+    <meta name="description" content="DISHA Financial Advisory - AMFI Registered Mutual Fund & Specialized Investment Fund (SIF) Distributor. NISM Series V-A & XIII Certified. Goal-Based SIPs, AIFs, and GIFT City International Funds in Thane & Mumbai.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #090e17;
+            --bg-secondary: #111927;
+            --bg-card: rgba(22, 32, 50, 0.7);
+            --bg-card-hover: rgba(30, 43, 67, 0.85);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-gold: #e2b755;
+            --accent-gold-light: #f6d888;
+            --accent-emerald: #10b981;
+            --accent-cyan: #06b6d4;
+            --border-color: rgba(226, 183, 85, 0.18);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background: linear-gradient(90deg, #0d1522, #1b263b, #0d1522);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 8px 16px;
+            font-size: 0.82rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .top-bar strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .top-bar a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 12px;
+            transition: color 0.2s;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(9, 14, 23, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-symbol {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-gold), #b8860b);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #090e17;
+            box-shadow: 0 0 15px rgba(226, 183, 85, 0.3);
+        }
+
+        .logo-text h1 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+
+        .logo-text span {
+            font-size: 0.72rem;
+            color: var(--accent-gold);
+            display: block;
+            margin-top: -3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.90rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-highlight-link {
+            color: var(--accent-gold-light) !important;
+            font-weight: 600 !important;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-nav-cta {
+            background: linear-gradient(135deg, var(--accent-gold), #c99726);
+            color: #090e17 !important;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 14px rgba(226, 183, 85, 0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(226, 183, 85, 0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 550px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(226, 183, 85, 0.12) 0%, rgba(9, 14, 23, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(226, 183, 85, 0.1);
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent-gold-light);
+            margin-bottom: 24px;
+        }
+
+        .hero h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h2 span {
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-credentials-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        .credential-chip {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .credential-chip span.dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #c99726);
+            color: #090e17;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 4px 18px rgba(226, 183, 85, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(226, 183, 85, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.25s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-portal-feature {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold-light);
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-portal-feature:hover {
+            background: rgba(226, 183, 85, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(226, 183, 85, 0.25);
+        }
+
+        /* Feature Banner - MF Scheme Explorer */
+        .portal-banner {
+            background: linear-gradient(135deg, rgba(22, 32, 50, 0.9), rgba(17, 25, 39, 0.95));
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px 40px;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+
+        .portal-banner-content h4 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .portal-banner-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 620px;
+        }
+
+        /* Section Headings */
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-eyebrow {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-header h3 {
+            font-family: var(--font-heading);
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-color);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card.highlight {
+            border-color: rgba(226, 183, 85, 0.45);
+            background: linear-gradient(180deg, rgba(226, 183, 85, 0.08) 0%, rgba(22, 32, 50, 0.7) 100%);
+        }
+
+        .service-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(226, 183, 85, 0.15);
+            border: 1px solid var(--border-color);
+            color: var(--accent-gold);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            width: 56px;
+            height: 56px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .service-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .service-bullets {
+            list-style: none;
+            padding: 0;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 16px;
+        }
+
+        .service-bullets li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .service-bullets li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .service-bullets li strong {
+            color: var(--text-main);
+        }
+
+        /* Calculator Section */
+        .calculator-wrapper {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .calc-input-group {
+            margin-bottom: 24px;
+        }
+
+        .calc-header-flex {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .calc-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .calc-val-display {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        input[type=range] {
+            width: 100%;
+            height: 6px;
+            background: #1e293b;
+            border-radius: 4px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(226, 183, 85, 0.6);
+        }
+
+        .calc-results-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 12px;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .result-item.total-highlight {
+            padding-top: 8px;
+        }
+
+        .result-item.total-highlight .result-num {
+            font-size: 1.7rem;
+            color: var(--accent-emerald);
+        }
+
+        .result-label {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .result-num {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-card {
+            background: linear-gradient(145deg, #111927, #162032);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .profile-photo-wrapper {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 0 20px rgba(226, 183, 85, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+        }
+
+        .advisor-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-initials {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-gold), #9a7313);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #090e17;
+        }
+
+        .about-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+
+        .about-card p.title {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-instagram:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 39, 67, 0.5);
+        }
+
+        .about-badges-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .about-badge-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        .about-text h4 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        /* Contact & CTA */
+        .contact-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            padding: 56px 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-section p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            font-size: 1.05rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 18px rgba(37, 211, 102, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 48px 0 32px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 36px;
+            margin-bottom: 36px;
+        }
+
+        .footer-col h5 {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 14px;
+            font-family: var(--font-heading);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-disclaimer {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 24px;
+            font-size: 0.78rem;
+            line-height: 1.6;
+            color: #64748b;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .calculator-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                padding: 16px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .portal-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement / Credential Bar -->
+    <div class="top-bar">
+        <span>AMFI Registered Mutual Fund &amp; Specialized Investment Fund (SIF) Distributor • <strong>ARN: 339305</strong></span>
+        <span>• Thane &amp; Mumbai, Maharashtra</span>
+        <a href="tel:+917738724256">📞 +91 77387 24256</a>
+        <a href="mailto:divya.ce@gmail.com">✉️ divya.ce@gmail.com</a>
     </div>
-    <div class="credential-chip">
-        <span class="dot"></span>
-        <strong>NISM Certified:</strong> Series V-A (Mutual Funds)
-    </div>
-    <div class="credential-chip">
-        <span class="dot"></span>
-        <strong>NISM Certified:</strong> Series XIII (Common Derivatives)
-    </div>
-</div>
+
+    <!-- Navigation Header -->
+    <nav>
+        <a href="#" class="logo-group">
+            <div class="logo-symbol">D</div>
+            <div class="logo-text">
+                <h1>DISHA</h1>
+                <span>Your Compass to Financial Freedom</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#sif-aif">SIF &amp; AIF</a></li>
+            <li><a href="#gift-city">GIFT City Global</a></li>
+            <li><a href="#calculator">SIP Calculator</a></li>
+            <li><a href="mf-search.html" class="nav-highlight-link">🔍 Scheme Search</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://wa.me/917738724256?text=Hi+Divya,+I+would+like+to+schedule+a+portfolio+review." class="btn-nav-cta" target="_blank" rel="noopener">Schedule Consultation</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge-pill">
+                ✨ Comprehensive Wealth Architecture &amp; Advisory
+            </div>
+            <h2>
+                Navigate Your Wealth with <span>Clarity &amp; Conviction</span>
+            </h2>
+            <p class="hero-sub">
+                Professional portfolio distribution and financial architecture spanning Goal-Based Mutual Funds, Specialized Investment Funds (SIF), Alternative Investment Funds (AIF), and GIFT City Global Feeder Funds.
+            </p>
+
+            <div class="hero-credentials-bar">
+                <div class="credential-chip">
+                    <span class="dot"></span>
+                    <strong>AMFI ARN:</strong> 339305
+                </div>
+                <div class="credential-chip">
+                    <span class="dot"></span>
+                    <strong>NISM Certified:</strong> Series V-A (Mutual Funds)
+                </div>
+                <div class="credential-chip">
+                    <span class="dot"></span>
+                    <strong>NISM Certified:</strong> Series XIII (Common Derivatives)
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="https://wa.me/917738724256?text=Hello+Divya,+I+would+like+to+discuss+my+investment+portfolio." class="btn-primary" target="_blank" rel="noopener">
+                    💬 Connect on WhatsApp
+                </a>
+                <a href="mf-search.html" class="btn-portal-feature">
+                    🔍 Explore 20,000+ Schemes
+                </a>
+                <a href="#services" class="btn-secondary">
+                    Explore Offerings
+                </a>
+            </div>
+        </section>
+
+        <!-- Feature Banner - Mutual Fund Search Tool -->
+        <div class="portal-banner">
+            <div class="portal-banner-content">
+                <h4>📊 Mutual Fund Scheme Search &amp; Explorer</h4>
+                <p>Browse across 20,000+ mutual fund schemes from 40+ AMCs with live NAV data, historical returns, and category classifications.</p>
+            </div>
+            <div>
+                <a href="mf-search.html" class="btn-primary" style="white-space: nowrap;">
+                    Open Scheme Search →
+                </a>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <div class="section-header">
+                <span class="section-eyebrow">Product Offerings</span>
+                <h3>Investment Solutions Tailored for You</h3>
+                <p>From disciplined retail wealth accumulation to sophisticated institutional-grade global strategies.</p>
+            </div>
+
+            <div class="services-grid">
+
+                <!-- 1. Goal-Based SIP Investing -->
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <div class="service-title">Goal-Based SIP Investing</div>
+                    <p class="service-desc">
+                        Disciplined, systematic wealth building linked directly to milestones like child education, home buying, and early financial independence.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><strong>Step-Up SIP Planning:</strong> Automatic yearly installment enhancements.</li>
+                        <li><strong>Multi-Asset Diversification:</strong> Equity, hybrid, debt, and gold balance.</li>
+                        <li><strong>Rupee Cost Averaging:</strong> Navigate market volatility with peace of mind.</li>
+                    </ul>
+                </div>
+
+                <!-- 2. SWP & Retirement Cashflow Planning -->
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <div class="service-title">SWP &amp; Retirement Cashflows</div>
+                    <p class="service-desc">
+                        Structure tax-efficient monthly income streams using Systematic Withdrawal Plans (SWP) for a secure post-retirement lifestyle.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><strong>Tax-Efficient Cashflows:</strong> Superior taxation compared to conventional FDs.</li>
+                        <li><strong>Capital Preservation:</strong> Conservative hybrid and dynamic asset allocation.</li>
+                        <li><strong>Inflation Hedging:</strong> Growth corpus beats long-term living inflation.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Specialized Investment Funds (SIF) -->
+                <div class="service-card highlight" id="sif-aif">
+                    <span class="service-tag">High Conviction</span>
+                    <div class="service-icon">💎</div>
+                    <div class="service-title">Specialized Investment Funds (SIF)</div>
+                    <p class="service-desc">
+                        Rule-based, quant-driven, and specialized strategies curated for investors seeking differentiated alpha beyond broad indices.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><strong>Smart Beta &amp; Factor Strategies:</strong> Value, momentum, and low-volatility models.</li>
+                        <li><strong>Thematic &amp; Special Situations:</strong> High-growth sector opportunities.</li>
+                        <li><strong>Targeted Asset Allocation:</strong> Active rebalancing across market cycles.</li>
+                    </ul>
+                </div>
+
+                <!-- 4. Alternate Investment Funds (AIF) -->
+                <div class="service-card highlight">
+                    <span class="service-tag">HNIs &amp; UHNIs</span>
+                    <div class="service-icon">💼</div>
+                    <div class="service-title">Alternate Investment Funds (AIF)</div>
+                    <p class="service-desc">
+                        Institutional-grade Category I, II &amp; III investment vehicles providing exclusive exposure to non-traditional and private asset classes.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><strong>Private Equity &amp; Venture Capital:</strong> High-growth unlisted businesses.</li>
+                        <li><strong>Private Credit &amp; Real Estate:</strong> Structured high-yield debt instruments.</li>
+                        <li><strong>Long-Short Hedge Strategies:</strong> Sophisticated risk management across cycles.</li>
+                    </ul>
+                </div>
+
+                <!-- 5. International Funds via GIFT City -->
+                <div class="service-card highlight" id="gift-city">
+                    <span class="service-tag">Global Markets</span>
+                    <div class="service-icon">🌐</div>
+                    <div class="service-title">International Funds (GIFT City IFSC)</div>
+                    <p class="service-desc">
+                        Seamless outbound global investing through the tax-efficient, liberalized IFSC regulatory framework in GIFT City.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><strong>Developed &amp; Emerging Markets:</strong> Exposure via MSCI World &amp; MSCI EM.</li>
+                        <li><strong>USD-Denominated Investing:</strong> Utilize the RBI LRS route (up to $250,000/year).</li>
+                        <li><strong>Global Tech &amp; Megacaps:</strong> Access AI leaders, semiconductor pioneers, and global champions.</li>
+                    </ul>
+                </div>
+
+                <!-- 6. Portfolio Review & Health Check -->
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <div class="service-title">Portfolio Review &amp; Health Check</div>
+                    <p class="service-desc">
+                        Consolidated analysis across existing mutual fund folios, eliminating scheme clutter, overlapping stocks, and high expense ratios.
+                    </p>
+                    <ul class="service-bullets">
+                        <li><strong>Risk-Return Alignment:</strong> Match current holdings with your time horizon.</li>
+                        <li><strong>Underperforming Scheme Weeding:</strong> Reallocate to high-alpha performers.</li>
+                        <li><strong>Consolidated Folio Tracking:</strong> CAMS &amp; KFintech unified tracking.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Interactive SIP Calculator -->
+        <section class="section" id="calculator">
+            <div class="section-header">
+                <span class="section-eyebrow">Wealth Planner</span>
+                <h3>Systematic Investment Plan (SIP) Calculator</h3>
+                <p>Visualize how consistent investing and compounding can build substantial wealth over time.</p>
+            </div>
+
+            <div class="calculator-wrapper">
+                <div class="calc-inputs">
+                    <div class="calc-input-group">
+                        <div class="calc-header-flex">
+                            <span class="calc-label">Monthly Investment (₹)</span>
+                            <span class="calc-val-display" id="dispMonthly">₹ 25,000</span>
+                        </div>
+                        <input type="range" id="inputMonthly" min="1000" max="200000" step="1000" value="25000">
+                    </div>
+
+                    <div class="calc-input-group">
+                        <div class="calc-header-flex">
+                            <span class="calc-label">Expected Return Rate (% p.a.)</span>
+                            <span class="calc-val-display" id="dispReturn">13.0 %</span>
+                        </div>
+                        <input type="range" id="inputReturn" min="6" max="22" step="0.5" value="13">
+                    </div>
+
+                    <div class="calc-input-group">
+                        <div class="calc-header-flex">
+                            <span class="calc-label">Investment Horizon (Years)</span>
+                            <span class="calc-val-display" id="dispYears">15 Years</span>
+                        </div>
+                        <input type="range" id="inputYears" min="1" max="30" step="1" value="15">
+                    </div>
+                </div>
+
+                <div class="calc-results-box">
+                    <div class="result-item">
+                        <span class="result-label">Total Amount Invested</span>
+                        <span class="result-num" id="resInvested">₹ 45,00,000</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Estimated Wealth Gain</span>
+                        <span class="result-num" id="resGains" style="color: var(--accent-gold);">₹ 94,92,447</span>
+                    </div>
+                    <div class="result-item total-highlight">
+                        <span class="result-label">Expected Total Corpus</span>
+                        <span class="result-num" id="resCorpus">₹ 1,39,92,447</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section with Photo & Instagram -->
+        <section class="section" id="about">
+            <div class="about-grid">
+                <div class="about-card">
+                    <!-- Profile Photo Container -->
+                    <div class="profile-photo-wrapper">
+                        <img src="divya.jpg" alt="Divya Shah - Financial Advisor" class="advisor-photo" onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex';">
+                        <div class="avatar-initials" id="fallback-avatar" style="display: none;">DS</div>
+                    </div>
+                    
+                    <h4>Divya Shah</h4>
+                    <p class="title">AMFI Registered Mutual Fund &amp; Specialized Investment Fund (SIF) Distributor</p>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px;">ARN: 339305 • Thane &amp; Mumbai, Maharashtra</p>
+
+                    <!-- Instagram Channel Link -->
+                    <a href="https://instagram.com/divyashahdisha" target="_blank" rel="noopener" class="btn-instagram">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>@divyashahdisha on Instagram</span>
+                    </a>
+
+                    <div class="about-badges-flex">
+                        <div class="about-badge-item">🏅 AMFI Registered (ARN-339305)</div>
+                        <div class="about-badge-item">📜 NISM Series V-A: Mutual Funds</div>
+                        <div class="about-badge-item">🎯 NISM Series XIII: Common Derivatives</div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <span class="section-eyebrow">About the Advisor</span>
+                    <h4>Data-Driven Wealth Architecture with a Client-First Philosophy</h4>
+                    <p>
+                        With a strong background in data analytics, AI systems, and quantitative modeling, I bring analytical rigor and structural discipline to personal finance and wealth management.
+                    </p>
+                    <p>
+                        Through <strong>DISHA Financial Advisory</strong>, my mission is to guide investors towards sustained financial independence. Whether designing goal-based SIPs for young families, curating tax-efficient SWP retirement engines, or advising on specialized SIFs, AIFs, and GIFT City international funds—every recommendation is tailored to the client's unique risk profile and life objectives.
+                    </p>
+                    <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px;">
+                        <a href="https://wa.me/917738724256?text=Hi+Divya,+I+would+like+to+discuss+my+portfolio+planning." class="btn-primary" target="_blank" rel="noopener">
+                            Schedule a Portfolio Review
+                        </a>
+                        <a href="mf-search.html" class="btn-secondary">
+                            Search 20,000+ Schemes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <span class="section-eyebrow">Get in Touch</span>
+            <h3>Ready to Start Your Wealth Journey?</h3>
+            <p>
+                Have questions regarding your asset allocation, SIFs, AIFs, or international investments? Schedule a 1-on-1 consultation today.
+            </p>
+            <div class="contact-methods">
+                <a href="https://wa.me/917738724256?text=Hello+Divya,+I+would+like+to+schedule+a+wealth+planning+session." class="btn-whatsapp" target="_blank" rel="noopener">
+                    <span>💬 Chat on WhatsApp (+91 77387 24256)</span>
+                </a>
+                <a href="tel:+917738724256" class="btn-secondary">
+                    📞 Call +91 77387 24256
+                </a>
+                <a href="mailto:divya.ce@gmail.com" class="btn-secondary">
+                    ✉️ Email Us
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h5>DISHA Financial Advisory</h5>
+                    <p style="margin-bottom: 12px;">Your compass to structured, data-backed wealth creation and financial freedom.</p>
+                    <p><strong>Divya Shah</strong> (AMFI ARN: 339305)</p>
+                    <p>AMFI Registered Mutual Fund &amp; Specialized Investment Fund Distributor</p>
+                    <p>Thane &amp; Mumbai, Maharashtra, India</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Offerings &amp; Tools</h5>
+                    <ul>
+                        <li><a href="mf-search.html" style="color: var(--accent-gold); font-weight: 600;">🔍 20,000+ Scheme Explorer</a></li>
+                        <li><a href="#services">Goal-Based SIP Investing</a></li>
+                        <li><a href="#services">SWP Retirement Solutions</a></li>
+                        <li><a href="#sif-aif">Specialized Investment Funds (SIF)</a></li>
+                        <li><a href="#sif-aif">Alternate Investment Funds (AIF)</a></li>
+                        <li><a href="#gift-city">International Funds (GIFT City IFSC)</a></li>
+                        <li><a href="#calculator">SIP &amp; Wealth Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect &amp; Social</h5>
+                    <ul>
+                        <li><a href="https://instagram.com/divyashahdisha" target="_blank" rel="noopener" style="color: #e6683c; font-weight: 600;">📸 Instagram: @divyashahdisha</a></li>
+                        <li><a href="https://wa.me/917738724256" target="_blank" rel="noopener">💬 WhatsApp: +91 77387 24256</a></li>
+                        <li><a href="tel:+917738724256">📞 Phone: +91 77387 24256</a></li>
+                        <li><a href="mailto:divya.ce@gmail.com">✉️ Email: divya.ce@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p>
+                    <strong>Statutory Disclaimer:</strong> Mutual Fund and Specialized Investment Fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Past performance is not an indicator of future returns. The information provided on this website is for educational and distribution purposes and should not be construed as legal, tax, or standalone investment advice.
+                </p>
+                <p style="margin-top: 8px;">
+                    © 2026 Disha Financial Advisory. Managed by Divya Shah (AMFI ARN-339305). All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Calculator Script -->
+    <script>
+        function formatINR(val) {
+            return '₹ ' + Math.round(val).toLocaleString('en-IN');
+        }
+
+        function calculateSIP() {
+            const P = parseFloat(document.getElementById('inputMonthly').value);
+            const annualRate = parseFloat(document.getElementById('inputReturn').value);
+            const years = parseInt(document.getElementById('inputYears').value);
+
+            document.getElementById('dispMonthly').innerText = formatINR(P);
+            document.getElementById('dispReturn').innerText = annualRate.toFixed(1) + ' %';
+            document.getElementById('dispYears').innerText = years + (years === 1 ? ' Year' : ' Years');
+
+            const i = (annualRate / 100) / 12;
+            const n = years * 12;
+
+            const totalInvested = P * n;
+            const maturityValue = P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+            const wealthGain = maturityValue - totalInvested;
+
+            document.getElementById('resInvested').innerText = formatINR(totalInvested);
+            document.getElementById('resGains').innerText = formatINR(wealthGain);
+            document.getElementById('resCorpus').innerText = formatINR(maturityValue);
+        }
+
+        document.getElementById('inputMonthly').addEventListener('input', calculateSIP);
+        document.getElementById('inputReturn').addEventListener('input', calculateSIP);
+        document.getElementById('inputYears').addEventListener('input', calculateSIP);
+
+        calculateSIP();
+    </script>
+</body>
+</html>
