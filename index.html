@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DISHA — Financial Advisory | Divya Shah (AMFI & SIF Distributor)</title>
-    <meta name="description" content="DISHA Financial Advisory - AMFI Registered Mutual Fund & Specialized Investment Fund (SIF) Distributor. NISM Series V-A & XIII Certified. Goal-Based SIPs, AIFs, and GIFT City International Funds in Thane & Mumbai.">
+    <meta name="description" content="DISHA Financial Advisory - AMFI Registered Mutual Fund & Specialized Investment Fund (SIF) Distributor. NISM Series V-A & XIII Certified. Goal-Based SIPs, SIFs, AIFs, and GIFT City International Funds.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -75,13 +75,13 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(9, 14, 23, 0.88);
+            background: rgba(9, 14, 23, 0.92);
             backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-subtle);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 32px;
+            padding: 12px 32px;
             max-width: 1280px;
             margin: 0 auto;
         }
@@ -93,34 +93,22 @@
             text-decoration: none;
         }
 
-        .logo-symbol {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent-gold), #b8860b);
-            border-radius: 10px;
+        .brand-logo-container {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 4px 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: #090e17;
-            box-shadow: 0 0 15px rgba(226, 183, 85, 0.3);
+            box-shadow: 0 0 15px rgba(226, 183, 85, 0.25);
+            border: 1px solid var(--accent-gold);
         }
 
-        .logo-text h1 {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: var(--text-main);
-        }
-
-        .logo-text span {
-            font-size: 0.72rem;
-            color: var(--accent-gold);
+        .brand-logo-img {
+            height: 38px;
+            width: auto;
             display: block;
-            margin-top: -3px;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -592,18 +580,18 @@
             background: linear-gradient(145deg, #111927, #162032);
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 40px;
+            padding: 40px 30px;
             text-align: center;
         }
 
         .profile-photo-wrapper {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             margin: 0 auto 20px;
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid var(--accent-gold);
-            box-shadow: 0 0 20px rgba(226, 183, 85, 0.35);
+            box-shadow: 0 0 25px rgba(226, 183, 85, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -614,6 +602,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 20%;
             display: block;
         }
 
@@ -759,6 +748,22 @@
             margin-bottom: 36px;
         }
 
+        .footer-logo-container {
+            background: #ffffff;
+            border-radius: 6px;
+            padding: 4px 8px;
+            display: inline-block;
+            margin-bottom: 14px;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .footer-logo-img {
+            height: 32px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
         .footer-col h5 {
             color: var(--text-main);
             font-size: 1rem;
@@ -804,7 +809,7 @@
                 grid-template-columns: 1fr;
             }
             nav {
-                padding: 16px;
+                padding: 12px 16px;
             }
             .nav-links {
                 display: none;
@@ -826,13 +831,11 @@
         <a href="mailto:divya.ce@gmail.com">✉️ divya.ce@gmail.com</a>
     </div>
 
-    <!-- Navigation Header -->
+    <!-- Navigation Header with Logo -->
     <nav>
         <a href="#" class="logo-group">
-            <div class="logo-symbol">D</div>
-            <div class="logo-text">
-                <h1>DISHA</h1>
-                <span>Your Compass to Financial Freedom</span>
+            <div class="brand-logo-container">
+                <img src="Dishalogo.jpg" alt="DISHA - Your Compass to Financial Freedom" class="brand-logo-img" onerror="this.onerror=null; this.src='Dishalogo.png';">
             </div>
         </a>
         <ul class="nav-links">
@@ -1060,8 +1063,7 @@
                 <div class="about-card">
                     <!-- Profile Photo Container -->
                     <div class="profile-photo-wrapper">
-                        <img src="divya.jpg" alt="Divya Shah - Financial Advisor" class="advisor-photo" onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex';">
-                        <div class="avatar-initials" id="fallback-avatar" style="display: none;">DS</div>
+                        <img src="IMG20260611115658.jpg" alt="Divya Shah - Financial Advisor" class="advisor-photo" onerror="this.onerror=null; this.src='divya.jpg';">
                     </div>
                     
                     <h4>Divya Shah</h4>
@@ -1131,7 +1133,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h5>DISHA Financial Advisory</h5>
+                    <div class="footer-logo-container">
+                        <img src="Dishalogo.jpg" alt="DISHA Logo" class="footer-logo-img" onerror="this.onerror=null; this.src='Dishalogo.png';">
+                    </div>
                     <p style="margin-bottom: 12px;">Your compass to structured, data-backed wealth creation and financial freedom.</p>
                     <p><strong>Divya Shah</strong> (AMFI ARN: 339305)</p>
                     <p>AMFI Registered Mutual Fund &amp; Specialized Investment Fund Distributor</p>
